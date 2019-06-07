@@ -1,3 +1,0 @@
-dev1 make file
-
-text 파일로 확장자 변경
