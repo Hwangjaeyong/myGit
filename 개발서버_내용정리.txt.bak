@@ -1,0 +1,590 @@
+## 개발서버 ssh 접속 내용 (by 육영민 부장)
+
+	** dev_nbp_theboms/ssh_210.89.190.155_apis.sh
+		echo "인덕대학교 개발 서버API"
+		sshpass -p'Y6eDYM!yuayb' ssh -p'10093' root@210.89.190.155  -o StrictHostKeyChecking=no
+
+	** dev_nbp_theboms/ssh_210.89.190.155_ca.sh
+		echo "인덕대학교 개발 서버CA"
+		sshpass -p'D9Tc+9@5L+dFb' ssh -p'10045' root@210.89.190.155  -o StrictHostKeyChecking=no
+
+	** dev_nbp_theboms/ssh_210.89.190.155_pc.sh
+		echo "인덕대학교 개발 서버PC"
+		sshpass -p'M6?U8=meJ!+9u' ssh -p'10189' root@210.89.190.155 -o StrictHostKeyChecking=no
+
+	** ssh_210.89.190.155_webview.sh
+		echo "인덕대학교 개발 서버 WebView"
+		sshpass -p'N7YrD!d98c74%f' ssh -p'10231' root@210.89.190.155 -o StrictHostKeyChecking=no
+
+--------------------------------------------------------------
+
+	** nhn_theboms/ssh_133.186.150.248_dev.admin.sh
+		echo "Admin SERVER"
+		ssh -i ./tbs3_dev.pem centos@133.186.150.248
+
+	** nhn_theboms/ssh_133.186.247.168_dev.apis.sh
+		ssh -i ./tbs3_dev.pem centos@133.186.247.168
+
+	** nhn_theboms/ssh_dns_133.186.132.111.sh
+		echo "NAME( BIND ) SERVER"
+		sshpass -p'R00t123!' ssh root@133.186.132.111  -o StrictHostKeyChecking=no
+
+	** nhn_theboms/tbs3_dev.pem
+
+--------------------------------------------------------------
+
+	** real_nbp_theboms/nbp-dev-service.pem
+	** real_nbp_theboms/nbp-real-service.pem
+
+	** real_nbp_theboms/ssh_210.89.190.155_real_api001.sh
+		echo "NBP REAL SERVER API 001"
+		sshpass -p'H2$8!aDm9L8qdf' ssh -p'10034' root@210.89.190.155  -o StrictHostKeyChecking=no
+
+	** real_nbp_theboms/ssh_210.89.190.155_real_pc001.sh
+		echo "NBP REAL SERVER PC 001"
+		sshpass -p'P5T!5@8fi8h' ssh -p'10180' root@210.89.190.155  -o StrictHostKeyChecking=no
+
+	** real_nbp_theboms/ssh_210.89.190.155_real_webview.sh
+		echo "NBP SERVER WebView 001"
+		sshpass -p'J9PcR4LDqTe8n' ssh -p'10129' root@210.89.190.155 -o StrictHostKeyChecking=no
+
+
+
+--------------------------------------------------------------
+# 미주 한인회
+-- 더봄에스3.0 한인회 AWS 클라우드 정보파일 Ver_1_2.xlsx
+
+	** 개발서버 - 뉴욕, LA, 라스베가스,하와이,애틀란타,아리조나,매사추세스
+		sa(뉴욕만) 	52.79.58.227	saadmin		sbdyr2019!!@@!!
+		ca	 	52.79.58.227	ny		sbdyr2019!!@@!!
+
+		api		52.78.237.209	nyapis		sbdyr2019!!@@!!
+		webview 		52.78.237.209	nywebview	sbdyr2019!!@@!!
+
+--------------------------------------------------------------
+
+
+1. 브라우저에서 개발단 확인 or 디버깅 방법?
+- loing.tbs?cpn_code=..로 시작.
+  SA는 cpn_code 불필요.
+
+2. 토스트, aws : CHAT 서버가 두 대씩 있는 이유? 
+- dev-ny-chat.theboms.co.kr : 현재 미사용. 나중에 chat기능 쓰기 위해 준비중임.
+  dev-ny-wv-chat.theboms.co.kr : 일부 시스템에서 사용 중임.
+  * wv는 모바일쪽 도메인에 사용되는 시스템에 붙여줌.
+
+3. 토스트 : SMS는 국내 서비스만 사용?
+- 국내만 사용중이고, 1개 서버에 설치된 것으로 전체 시스템 사용 중.
+
+4. aws : 한인회 뉴욕만 API, FTP 두 대씩인 이유? 
+   ny-apis.thebom.pro, ny-wv-apis.thebom.pro
+   ny-ftp.thebom.pro, ny-wv-ftp.thebom.pro
+- 변경 전후 도메인이고, wv 붙은 것만 사용중임. 앞에 것 미사용
+
+5. DB 내부/외부 구분 이유?
+- DB 외부 도메인은 사내에서 툴로 접속하기 위한 도메인임. 사무실 IP만 접속가능하도록 방화벽 설정중.
+
+6. 기타
+- 토스트 SA에 aws 붙은 시스템은 모두 미사용. 
+  이전에 모든 시스템을 토스트에서 사용하다가, 현재 미국쪽은 AWS로 옮겼음. 
+- 관리자 계정 theboms는 개발자용, admin는 업체측 전달용 계정임.
+- PC용 웹은 인덕대, 에디톡 2개만 있음.
+
+
+
+1. 토스트 개발 SA 도메인 dev-admin.theboms.co.kr 아닌가요? 로그인 불가
+
+2. 토스트 개발 웹뷰 dev-wv.theboms.co.kr, dev-mm-wv.theboms.co.kr, dev-hk-wv.theboms.co.kr 연결안됨.
+
+3. 토스트 리얼 SA, CA sadmin.thebom.pro,  cadmin.thebom.pro 연결안됨.
+
+4. 토스트 리얼 웹뷰 중 wv.thebom.pro main 페이지 없음
+
+5. AWS 개발 SA dev-sa-admin.theboms.co.kr 연결안됨.
+
+6. AWS 개발 웹뷰 중 dev-wd-ny.theboms.co.kr (디자인퍼블리싱) 연결안됨.
+
+
+
+
+* 유저 변경
+* SA에 fcm키 입력
+
+* 도메인 설정 변경 (gm -> cm)
+dev-cm-wv-apis.theboms.co.kr
+dev-cm-wv.theboms.co.kr
+
+
+* DNS서버 (133.186.132.111)
+/var/named/*.zone 파일에 2차도메인 추가 후 named 서비스 재시작
+
+
+* 약관파일 설정
+dev-cm-img.theboms.co.kr에 cpn_code로 디렉토리 생성후 raw디렉토리 아래에 약관파일 저장
+브라우저에서 확인
+
+
+* api, webview 셋팅 
+- 공지사항,자유게시판으로 테스트
+
+
+
+* mysql timezone 설정 mysql에서 CONVERT_TZ() 함수 사용할때, user디비 timezone 관련 테이블 등록되야 함.
+    # mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot -p mysql
+
+
+* 메인메뉴 링크 변경 필요
+    _TBS_APP_MAIN_MENU 테이블에 link_url 컬럼에 _CAT 수정 필요
+
+
+* 이종유저간 파일업로드를 위한 권한 설정
+cadmin유저 웹에서 pubfile유저 디렉토리에 업로드를 위한 셋팅 (/home/pubfile/public_html)
+- pubfile 디렉토리 유저 nobody(아파치 계정)로 변경
+- public_html 디렉토리 권한 744로 변경
+
+
+* mysql 계정 추가
+grant all privileges on *.* to 'tbs'@'%' identified by 'tbs2019!!00!!';
+grant all privileges on *.* to 'tbs'@'localhost' identified by 'tbs2019!!00!!';
+
+
+* seliux 해제
+https://www.lesstif.com/system-admin/centos-selinux-6979732.html
+
+
+* ftp 패시브 모드 설정
+https://www.auctionpro.co.kr/?p=182
+
+anonymous_enable=NO           - [anonymous 접속 허용 여부] YES를 NO로 변경
+idle_session_timeout=3600     - [접속 세션 유지 시간(초)] 주석 풀고, 600초를 적당히 변경
+chroot_local_user=NO          - [최상단 디렉토리를 접속한 유저 홈디렉토리로 제한] 주석 풀고, YES를 NO로 변경
+allow_writeable_chroot=YES    - [chroot_local_user 제한 설정할 경우 설정값] 내용 추가
+chroot_list_enable=YES        - [chroot_list_file(접속 허용 계정 리스트) 활용 여부] 주석 풀음
+chroot_list_file=/etc/vsftpd/chroot_list - 주석 풀고, 해당 경로에 파일 생성
+listen=YES                    - [standalone 설정 여부] YES를 NO로 변경
+listen_ipv6=NO                - YES를 NO로 변경
+
+(옵션 사항)
+use_localtime=YES             - [서버시간으로 사용] 하단에 내용 추가 
+anon_max_rate=100000          - [annymous 전송속도 제한 bps] 하단에 내용 추가
+local_max_rate=500000         - [유저 전송속도 제한 bps] 하단에 내용 추가
+trans_chunk_size=0            - 하단에 내용 추가
+force_dot_files=YES           - [. 파일 표시 여부] 하단에 내용 추가
+max_clients=10                - [최대 접속 허용수] 하단에 내용 추가
+max_per_ip=2                  - [한 아이피당 접속 허용수] 하단에 내용 추가
+
+----------------------------------------------------------------------
+
+
+cadmin 왼쪽메뉴 정상화
+각 메뉴 링크url 카피 기능 확인
+모바일 메인메뉴 셋팅
+
+
+
+## find . -type f | grep -r "CPAE163107A3B645D4F57E" .
+
+./nywebview/public_html/board.tbs:      case 'CPAE163107A3B645D4F57E' : // 빅토리아 한인회
+./nywebview/public_html/land.tbs:       case 'CPAE163107A3B645D4F57E' : // 빅토리아 한인회
+./nywebview/public_html/living.tbs:     case 'CPAE163107A3B645D4F57E' : // 빅토리아 한인회
+./nywebview/public_html/market.tbs:     case 'CPAE163107A3B645D4F57E' : // 빅토리아 한인회
+./nywebview/public_html/profile.tbs:    case 'CPAE163107A3B645D4F57E' : // 빅토리아 한인회
+./nywebview/public_html/social.tbs:     case 'CPAE163107A3B645D4F57E' : // 빅토리아 한인회
+
+./nywebview/public_html/css/common4.css:.checkbox_area.circle_vic label:before {width: 22px; height: 22px; background-position: 0 0; background-image: url(../images/btn-radio-off.vic.svg);}
+./nywebview/public_html/skins/emergency/emergency.list.vic.skin.tbs
+
+./nyapis/config/modules/mod_chat.tbs:           }else if("CPAE163107A3B645D4F57E" === $cpnCode){ // 빅토리아_캐나다
+./nyapis/config/modules/mod_sps.tbs:                    case "CPAE163107A3B645D4F57E" : // 빅토리아_캐나다 한인회
+
+./nychat/public_html/common/def.php:}else if("CPAE163107A3B645D4F57E" == _CPN_CODE){    // 빅토리아_캐나다
+
+
+## find . -name "*vic\.*"
+
+./nywebview/public_html/css/service.vic.css
+./nywebview/public_html/images/btn-profile-call.vic.svg
+./nywebview/public_html/images/btn-profile-home.vic.svg
+./nywebview/public_html/images/btn-profile-on.vic.svg
+./nywebview/public_html/images/btn-profile-talk.vic.svg
+./nywebview/public_html/images/btn-radio-on.vic.svg
+./nywebview/public_html/images/btn_plus.vic.png
+./nywebview/public_html/images/btn_social.vic.png
+./nywebview/public_html/images/icon-list-up-on.vic.svg
+./nywebview/public_html/images/img-file-not.vic.svg
+./nywebview/public_html/images/img-notice-not.vic.svg
+./nywebview/public_html/images/img-search-not.vic.svg
+./nywebview/public_html/images/img-wirte-not.vic.svg
+./nywebview/public_html/images/social_not.vic.png
+./nywebview/public_html/images/ico_wrap.vic.svg
+./nywebview/public_html/images/img-talk-not.vic.svg
+./nywebview/public_html/images/invalid-name.vic.svg
+./nywebview/public_html/images/btn-radio-off.vic.svg
+./nywebview/public_html/images/btn-profile-off.vic.svg
+
+./nywebview/public_html/skins/emergency/emergency.list.vic.skin.tbs
+
+
+## find . -name "*_vic*" 
+
+./nychat/public_html/css/service_vic.css
+./nychat/public_html/images/_vic
+
+
+
+
+Wed Feb 24 08:05:29 간헐 : Wed Feb 24 17:05:29 
+
+Thu Feb 25 00:47:26 : Thu Feb 25 09:47:26 
+
+
+find . -type f | grep -r "sps\.txt" .
+
+
+
+
+-------------------------------
+02-26 주간업무
+sps.theboms.co.kr / sps.thebom.pro 도메인 파악
+
+빅토리아 한인회
+- sns 로그인 설정 : 구글, 카카오, 네이버, 페북 (by 김성진 부장)
+- 베트남 요청문서 작성 후 전달 (to 신익희 실장)
+- 리얼서버 디비 및 소스 적용. 적용간 버그 발생 수정.
+
+aws API서버 모니터링 추가(with 육영민 부장)
+
+인수인계 문서 수령(by 김성진 부장)
+
+
+https://dev-oc-wv.theboms.co.kr/emergency.tbs?PageType=eUpaRXhpLzh2NkQ1MGtGKzhTODB2SldwU0R2a1Y4eThSODFiWmNYRjc2WG5nMkZobTM3MHhoK3JCelh0aFdzekJmTDJjVTFnbzZ5cW1ubmNSb1RBdHc9PQ==&wvPrf=abcdefghijklmnopqrstuvwxyz
+
+
+
+20210302
+
+에디톡 
+1) 웹뷰 - 구인게시판 이미지 업로드 여부 확인
+
+2) pc - 구글 서치 콘솔 확인 ( www빼고 도메인만 등록 처리 )
+
+시스템 조직 인수인계
+
+
+RewriteRule      ^(.*)$ https://%{HTTP_HOST}$1     [R=301,L]
+
+
+# 기존 vhost.conf 
+ServerName dev-kps.theboms.co.kr
+Redirect permanent / https://dev-kps.theboms.co.kr
+
+
+http://www.editalk.org/index.tbs : URL로 접속
+=> 리다이렉트URL https://www.editalk.orgindex.tbs [ERROR!!]
+        
+
+# 변경 vhost.conf 
+- /etc/httpd/modules/mod_rewrite.so 필수
+
+ServerName dev-editalk.theboms.co.kr
+RewriteEngine On
+RewriteRule  ^(.*)$ https://%{HTTP_HOST}$1     [R=301,L]
+
+http://dev-editalk.theboms.co.kr/index.tbs : URL로 접속
+=> 리다이렉트URL https://dev-editalk.theboms.co.kr/index.tbs [SUCCESS]
+
+
+ ServerAlias www.editalk.org
+ 
+
+# 0303
+1. 더봄3.0 시스텐 내용 전달
+2. 에디톡 구글 서치 콘솔 확인
+    - 버추얼호스트 설정 오류 확인
+
+#0304
+1. 더봄2.0 시스템 내용 전달
+2. 에디톡 스와이프 기능 테스트 및 개발 일정 산출 (3월 4일까지)
+3. 광명시 3월 둘째주부터 요구사항 미팅 진행 (with 백실장님)
+   - 미팅 대비 중구 및 더봄 솔루션 기본 기능 파악
+
+4. promba 회원수
+
+
+- 정보마당
+https://dev-kps-wv.theboms.co.kr/board.tbs?PageType=SHRCNXlSaXNLY1prVTN5djV3WjVVdG85Um8rK1JUY1h3dlQxWkVhZmpsclRWRkRoRUkvMmQ2ajRKZ1A3aFhCbg==&_TBL=SHRCNXlSaXNLY1prVTN5djV3WjVVdG85Um8rK1JUY1h3dlQxWkVhZmpscGx4V1ZFTUVuZlhQVmJ0L1FBQ0hITA==&_CAT=SHRCNXlSaXNLY1prVTN5djV3WjVVdG85Um8rK1JUY1h3dlQxWkVhZmpscXVGU3BIWGV1T2wwQ3hMTlFwekpNdQ==&wvPrf=
+- 뉴스
+/news.tbs?PageType=UGFXRVZiZ0NLcmxDMDZvRjJGekJYZHRpSy9KM29pWjBGdzJEdDEyMUtNbFExTWQ2MStvVEkzZktRSFlDTXFHZQ==&wvPrf=T3hZbFdlUzhnWlM0M2R4NjdIZ0JtVU9yblpyOW1mT2hpSFFFZmV5c2JGaG9idFk5a1MrazJhb2g5T0tPOGloVkwxQnVMMmpQeTJKQUZ5NUx2b2xkb0Q0YW5pZnI1N3ZzOUdwNW52SVBBY29xRnJlRGhJQVM0TTJjU0dvSHlyeUdNSTZVekkrNUJieTVnV3NaUThZcEV1cXAzU0RFWUQ3MVpCalJISGJuTnk4YkY1aWI4cFBWUUpTdVFtdGNremhDMmlIN25xTkJWd0UxeTBjTU8ybWRlWGlPcGpLUm5zK1A1dVcwdy9oY1h1QytjOWZpTXg5RHVSTVJUckJzaGVqa1pHZ2ZSM1BxU1k3VFlBbTZDVHdxcHhRT01ZNkt4bExoU1d4Z0prZWFFMFliUk5jRjIwWE4xVnNMZTBwRkIrU1ZtWllEb1pNU3k5NnVTK3BZaUtaTXFBPT0=
+
+- 자유게시판
+/board.tbs?PageType=TjcvbWhtNWZSaDZHcUxzOE1EQTFFUkJjazlFOFZYQ2tGUWxkT1pJRmFGTGxRZ1M1WnZGcUJQdlNHTGdiRTVudw==&_TBL=TjcvbWhtNWZSaDZHcUxzOE1EQTFFUkJjazlFOFZYQ2tGUWxkT1pJRmFGSk9lbUk2U1ZpMFNIMFVQa0Rja21ZYQ==&_CAT=TjcvbWhtNWZSaDZHcUxzOE1EQTFFUkJjazlFOFZYQ2tGUWxkT1pJRmFGTDcyYnNJb0NEYlFvM3Y5MnZaeUdjZg==&wvPrf=T3hZbFdlUzhnWlM0M2R4NjdIZ0JtVU9yblpyOW1mT2hpSFFFZmV5c2JGaG9idFk5a1MrazJhb2g5T0tPOGloVkwxQnVMMmpQeTJKQUZ5NUx2b2xkb0Q0YW5pZnI1N3ZzOUdwNW52SVBBY29xRnJlRGhJQVM0TTJjU0dvSHlyeUdNSTZVekkrNUJieTVnV3NaUThZcEV1cXAzU0RFWUQ3MVpCalJISGJuTnk4YkY1aWI4cFBWUUpTdVFtdGNremhDMmlIN25xTkJWd0UxeTBjTU8ybWRlWGlPcGpLUm5zK1A1dVcwdy9oY1h1QytjOWZpTXg5RHVSTVJUckJzaGVqa1pHZ2ZSM1BxU1k3VFlBbTZDVHdxcHhRT01ZNkt4bExoU1d4Z0prZWFFMFliUk5jRjIwWE4xVnNMZTBwRkIrU1ZtWllEb1pNU3k5NnVTK3BZaUtaTXFBPT0=
+
+
+
+
+빅토리아 한인회 소셜
+/social.tbs?PageType=OWVYS3RYOWc2cmNBOElhblFVZFhsTFNOQkZReWxoMWRmWk5kNGxnWXFkT2FuK0xMdXdlRElLMlZFQlRnYWYvV2pyNlB6eS9DMUZYZzhpNG9nYTkxTWc9PQ==&loadingShow=OWVYS3RYOWc2cmNBOElhblFVZFhsTFNOQkZReWxoMWRmWk5kNGxnWXFkUDlVQ3pDNUxRTTdzVldBUUNpSHNvbA==&wvPrf=SUt5d3pYVWtHU2pEWitlUjB2VzVwMmgzb09OTUlVUjdGZUx1WVFka1FxVTNwQzBYR2RTMWpFS0NQaDBORms2RnMzWksvZ2RtU1RQRVErRzlLN294L0J6c2toTkUxSENkUHVKcHBJalZCK1pwZ2ZFVFdpWm9yS2w3RkxhbXZ4Zk80Z00zWnAxdWRGakI0cTBlNlVLVlpsZFlWWndwVHB0NjB4WVZjcXp6MmhZbmlyN1diNElvb2haZ3FidUlERjhHMWUvMHIycjA3M3dnVEZRTFBGVnVyVXRFNmNnZWpuVjNBVEdXeFp4U0Vpc1RMb29QYXZlUVBrL0grT3pGcHZ4UGJFTkMvVVA5WUpqQ0FpZlVUTXNKMzk0RVBUSzBOWjNxVzl5blQ0QVRxK1ZWa1F4YWlwTzRaeTFObGZaYStmanVVZVNtM3pWZlE0d0h0YW1Ba0FLUXMrb2V4R3pHNnB5NmprR1J4NTI0VmtjZ0xIWUp3SWtxb0MrYXZDL1Z5LzlhK3U4NWFPQkx2Z3VjVjBuWFVHL2dQQT09
+
+/social.tbs?PageType=OWVYS3RYOWc2cmNBOElhblFVZFhsTFNOQkZReWxoMWRmWk5kNGxnWXFkT2FuK0xMdXdlRElLMlZFQlRnYWYvV2pyNlB6eS9DMUZYZzhpNG9nYTkxTWc9PQ==
+&loadingShow=OWVYS3RYOWc2cmNBOElhblFVZFhsTFNOQkZReWxoMWRmWk5kNGxnWXFkUDlVQ3pDNUxRTTdzVldBUUNpSHNvbA==
+&wvPrf=SUt5d3pYVWtHU2pEWitlUjB2VzVwMmgzb09OTUlVUjdGZUx1WVFka1FxVTNwQzBYR2RTMWpFS0NQaDBORms2RnMzWksvZ2RtU1RQRVErRzlLN294L0J6c2toTkUxSENkUHVKcHBJalZCK1pwZ2ZFVFdpWm9yS2w3RkxhbXZ4Zk80Z00zWnAxdWRGakI0cTBlNlVLVlpsZFlWWndwVHB0NjB4WVZjcXp6MmhZbmlyN1diNElvb2haZ3FidUlERjhHMWUvMHIycjA3M3dnVEZRTFBGVnVyVXRFNmNnZWpuVjNBVEdXeFp4U0Vpc1RMb29QYXZlUVBrL0grT3pGcHZ4UGJFTkMvVVA5WUpqQ0FpZlVUTXNKMzk0RVBUSzBOWjNxVzl5blQ0QVRxK1ZWa1F4YWlwTzRaeTFObGZaYStmanVVZVNtM3pWZlE0d0h0YW1Ba0FLUXMrb2V4R3pHNnB5NmprR1J4NTI0VmtjZ0xIWUp3SWtxb0MrYXZDL1Z5LzlhK3U4NWFPQkx2Z3VjVjBuWFVHL2dQQT09
+
+
+
+NAS > 2.개발실 > 개발 > 2.0폴더 > 통합서비스 운영자료
+
+
+
+S0NoWHduekZoVHI0VjNHbnQybWIrSlRZbGZoL1F4N2tkNmRpSUxIa2NBdzlCS0ZrS1NzTEtvdEZyRWpQQzZRbXFuYzdJMmJieXdtRVUrNG9EeXdROFlRekxyU1FONmFBeGVOQWhrdlR0R1JrVmpUWjlKQ1U3c1lyMG1KTURBVjJ0TXFMbTFsMlpNVlJNL01ZSnJEb0dxM0pLT3dvOVloSGUvNFVDalZFTXQxM3BMRUVzM1Y1ZGRPaE1VV3NLMXZwVDdrMUZIdVFyU1VJWXVQcWNRRGNCNHdxcGRwWWpGWTcvdjIvVWRZdXIrNDVZNlJTYTdBa25WR0s1cmhpZDRnK3FMUWZQQzZxZ2tlTWpNWTc4a3ozeFFNaytwMzJxM0pPaUo3cUdwTEhFbytGMDRSV1ROd3NDNjFFRUdvdmtFVGdCRmJVRW9EVlNmVFduMW5VMW9xamFHamlBbGtLK1F0aDJjb2R4QUVKLzhZcXg3bEIwRXdPaVAyd0JyRTFKR1E1MTh2OTR0Q3pQNWZoQ2xxNUUvM2pRdz09
+
+빅토리아 - 메인
+
+https://dev-vic-wv.theboms.co.kr/main.tbs?PageType=MWVXODg0ekdyU1FoSG5WRWhwMmtWTzdubmZFcndkYlhBTk5ySnlFalZsalFYOUxBZCtrcjBtbzR2THVqTjlYZQ==&loadingShow=MWVXODg0ekdyU1FoSG5WRWhwMmtWTzdubmZFcndkYlhBTk5ySnlFalZsaEI3eEc1d3lFRWwySDZ6ZzVESmRwag==&wvPrf=UDczbDZIVk10WDhrNVpESFJOREJNQnc3d1Z5empDdU9wWTlEZHRMUnNPK2I0cmVjOVhPS3pqNXFXSjYrbEV1RlE5a3NqSkl3YXdoV3Jna1ZpQUdlRi85citEYUdKeWhxOEZMNkloY0M3d1NZSlJvTHBUYnRqbjNwa2xRR2J1bm5XTGRrQ25ET1Z2WEtDalFxM1dLYjdXbTA1cGgvS05HWjhPSG40NkJHSjV5eEpHcmd4QWM5YTBsb2prSGQxN0o5YUJnLzVMK3NhYncvZklxZCsrZHBweDIzZHhhS1VRUTRzL3VYZ2NSNGg3djNkRVZ2cG0vcEl1UkxDY2VERG5LdHVlbUN3eU45MzlGTTA2bUlDeVVmWnBNYm1VRVVZTDJNVitERU5pWmtnNWtXOTNuR0FOSVV5a2FGM3RWaGN5alhndW9wM0N5SXpocGNrWGo0Q2JMSXg3VTJjRGIrSWtjd3NqSFJqcE1mYll2RHFiN2hSaC9ScU03ZXhteXMrWGVkVEF6ZTYwNHp4ZUhtUkxzVnVWWG94UT09
+
+빅토리아 - 자게 리스트
+https://dev-vic-wv.theboms.co.kr/board.tbs?PageType=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFb0YxcWU4VVR3SUhZSlNuRjdycGI3YQ==&wvPrf=abcdefghijklmnopqrstuvwxyz&_TBL=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcW42YU1lWmxGT00vSytEWkVCUGZQSg==&_CAT=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcmdTUEdHQm1ZNGFOSjZWQjBxbXpRNQ==&wvPrf=S0NoWHduekZoVHI0VjNHbnQybWIrSlRZbGZoL1F4N2tkNmRpSUxIa2NBdzlCS0ZrS1NzTEtvdEZyRWpQQzZRbXFuYzdJMmJieXdtRVUrNG9EeXdROFlRekxyU1FONmFBeGVOQWhrdlR0R1JrVmpUWjlKQ1U3c1lyMG1KTURBVjJ0TXFMbTFsMlpNVlJNL01ZSnJEb0dxM0pLT3dvOVloSGUvNFVDalZFTXQxM3BMRUVzM1Y1ZGRPaE1VV3NLMXZwVDdrMUZIdVFyU1VJWXVQcWNRRGNCNHdxcGRwWWpGWTcvdjIvVWRZdXIrNDVZNlJTYTdBa25WR0s1cmhpZDRnK3FMUWZQQzZxZ2tlTWpNWTc4a3ozeFFNaytwMzJxM0pPaUo3cUdwTEhFbytGMDRSV1ROd3NDNjFFRUdvdmtFVGdCRmJVRW9EVlNmVFduMW5VMW9xamFHamlBbGtLK1F0aDJjb2R4QUVKLzhZcXg3bEIwRXdPaVAyd0JyRTFKR1E1MTh2OTR0Q3pQNWZoQ2xxNUUvM2pRdz09
+
+빅토리아 - 자게 뷰
+https://dev-vic-wv.theboms.co.kr/board.tbs/?PageType=TFdiS1AvWWovOHFpYUNNT3BmdWRsU1lkS2daNzV3TTdFNXJqRmxOSURENlJyQjh2WWZTZTlEdERhTm1sbXlhbA==&wvPrf=S0NoWHduekZoVHI0VjNHbnQybWIrSlRZbGZoL1F4N2tkNmRpSUxIa2NBdzlCS0ZrS1NzTEtvdEZyRWpQQzZRbXFuYzdJMmJieXdtRVUrNG9EeXdROFlRekxyU1FONmFBeGVOQWhrdlR0R1JrVmpUWjlKQ1U3c1lyMG1KTURBVjJ0TXFMbTFsMlpNVlJNL01ZSnJEb0dxM0pLT3dvOVloSGUvNFVDalZFTXQxM3BMRUVzM1Y1ZGRPaE1VV3NLMXZwVDdrMUZIdVFyU1VJWXVQcWNRRGNCNHdxcGRwWWpGWTcvdjIvVWRZdXIrNDVZNlJTYTdBa25WR0s1cmhpZDRnK3FMUWZQQzZxZ2tlTWpNWTc4a3ozeFFNaytwMzJxM0pPaUo3cUdwTEhFbytGMDRSV1ROd3NDNjFFRUdvdmtFVGdCRmJVRW9EVlNmVFduMW5VMW9xamFHamlBbGtLK1F0aDJjb2R4QUVKLzhZcXg3bEIwRXdPaVAyd0JyRTFKR1E1MTh2OTR0Q3pQNWZoQ2xxNUUvM2pRdz09&_TBL=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcW42YU1lWmxGT00vSytEWkVCUGZQSg==&_CAT=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcmdTUEdHQm1ZNGFOSjZWQjBxbXpRNQ==&nBrdCode=QkdNc2hSdzcydmJGK1Q5cUFsa3Vlb1RXUW5LaDRiYmJ5VkpUdU1scXJkZ3lzTHpwTTkvbEw4QnBSTEN3c3YrRA==
+
+빅토리아 - 소셜 
+https://dev-vic-wv.theboms.co.kr/social.tbs?PageType=b0VZZ0w5eis0enlkbTlTcDFoSGdwWDkxeFJuYTZ5djRsTnBTUTZTTXpXbHB1VXh2M1NlNHR5dWtsNGlaVlBjak90Z3BGZjgzUHhhM1JYank4S2VDSVE9PQ==&wvPrf=MjQrSTA0L1hFMGF6QWMvQzUrWlduZndhRUxrcGRzK1NRVGpjdG92a1JWUkx2Mi9YdmN0YzcxR3gwbkJsSkNXVnVwMG0yWTh0WjhJbllzUkJwS3VPWitMRC8yZlN3OGNYNXUxcmZVUXlkaDNkNUVLZXFjZ0lsbjZMdlh1U1RFakJHbXlHd29BQXRlMjdvSVcxUDN5eU5QK2wycXFwNGJhSTJnSVNpU0hpNmlFQXFSYzBZM2VoS09rbE5CbmI3Nk1zZlliZjZReUMxUjAydHRqL3NJMXRsT1lzazBNTjc2S0IrOTVOd1AveVd6UkROWHBaTlBLN2RReVRiVWRjbGdWS3QyWk5tVFJxeEJVZ3dLSEhEeEtlTkJpczBwbWtGN3FLMXg1bHV1TWFqditoalUvMnhpdTA3WXhFdVFrdFpjRGs1YnR4aEtMbU15VVpGZlZsL0RUb3M3SEhXb0tCS0lVOGhpaHhMY291SHNVcWhhaFhFemIrTUlYREY4cHpvN3RMQlJZd2hGcGNueTFMcXFTVk94bWg3Zz09
+
+빅토리아 - 긴급연락처
+https://dev-vic-wv.theboms.co.kr/emergency.tbs?PageType=blhvNUZYZHZKeS9VYWRLZXk1SmxxU3QyYm9XQUhVdXV6a0JTQ1VhTjFSNDRMUmtDRGZvTmR0KzFLL2VoM3R1VXZrYXNCT2kvRVFadUp5N2FrL2c0OFE9PQ==&loadingShow=blhvNUZYZHZKeS9VYWRLZXk1SmxxU3QyYm9XQUhVdXV6a0JTQ1VhTjFSNk93Zm1GTGU5TEJJRHU3WklGZlJTeA==&wvPrf=dU9EZFdHa1BEU0hVeHk1dWkrNzhRbmMvZ2pQRjQvNDFadXZnWGFUYmh3eWZPaDNUQkdIRy94T01ETCtxcFNHYWJyMi9qcWd4M0l3cjhIVHFRbWFOdExiazB5anNyaHd1TjhveW9lcGxVT0hXeHJsZlY1anBrNm40OU9RQ0VWbmhBRklzdGNocDdtd0dFVjZWdEYzUGZnYk5wS3ZyMHhJd2c3VkhGYWtKMllXdTN6SUhoWmVSK0l3U1J5MGxYNXQ4SFJPTWhwS2NDRVhsU2JBeDJhcDExdHlaODB0dE5lQWIydERpVFd6S01NZU5TNlYrUFVrWWlEZExyN1ZHbVFoVmE1S1VEMFQzd3Izd1JnMURyZ1FwdDBQZjd3R25VLzNENGJvdG94Q3N2YnR1TVVXc2JVVXNLNjdMdW40WnhtdHZPWWo5aWNNMFlTV1BzV0lBQkpmRjFPMStVWFlOQjNab0pEc2hiUVJuZ0VBL2l6V2paNm0reFEwdTQ3cnFielpo
+
+빅토리아 - 영사관공지
+https://dev-vic-wv.theboms.co.kr/news.tbs?PageType=WEpneGhYTjExdlRNSVB1MFlMbTRKRnJQODVjeVZ6ZWNiU0w3NFZ0bVhFVmVvQndiSnJkOUh3WUNoVDNoT3dpSA==&loadingShow=YVNDUkQ5UEtHRVJ2KzNNMnhYdkcwTnMrRTc5WWVnWHVMeldsSXJjMGtiejdFaStTZnlxVjJyRmI5UE9nd0VjQQ==&wvPrf=RUZsS1JZdDJsMDFzQzAvUFJlTDBmdkpJOWdEZjdIMmVnc05KQlFRaFYranVDQllDd0wzZ0FXMXR2RFdQemlFVWZkN0dpbmhML28rbmhoN29sbi91QWRZYWpnUDRYWm9IbjN2cDFoV1p2YVBGTGdMU09uZGFEa0xCbmFQa1p6TkF5dlRISEpBOG15Si9tSmdHVHg2b2gzTDhIaUY3Q1lGaDRyd2NSZ2M4RjZxQVF6YzJPU2JmSzNySEFHOGkwSkNmbjY2cFd2bmttL0tjK3dKS0RyQUxtZ0F4Uk1PUWxRb0FTcWtKMnlxSGtLazVXRkpFQjBtT01RZVNnemptUW9OVE9pNUZ5WDk3VVU5K2JDRkRBSWU2UnE0UTF5NEJoZHNXYnYyZlN5eVJWc0xEVGdMMnM4MGgrWVg4WlJvRE0vU05nWkk4cXM1WDIxeG5UbGNmOWZaNjV5OWhqUmI2RWJpYkExUEhRVkJyZGZtai9tSDVuTlhiWVI1T1JVeEg1cnR3
+
+빅토리아 - 게시판 파일첨부
+https://dev-vic-wv.theboms.co.kr/board.tbs?PageType=T1BlTEVNMmpRMGNEeks5a0tOZzVVcnlRaTNuRFo2TzhZMW9yRU1TKzBiL0lIdXJ1bzdSTnVhcmMrVlBSWHFIcg==&wvPrf=bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlArbjBGMWdnUGdkbmRuSUQ4NTNESmRqZjNOZXNGcnQ1WmZDbU9jLzRDeWM4Zy9Lc2FJcmlwTTJ3RmMwcHhkNy9tYTZJUXQxYUtHbFIzWFUzeHVvck1pck1uZlFUSXM1c2VBQ2U4NU9tRWVwYmV5Z2RDN1pSVk9JOSs3Z1p4Nzg1ZEZjY2lJQktmUjRmZ3RwZ05DWjZhVjBLTFlUQmlIczZnd2tyVGZxU25XNG9KbUtHNEFSVVZnQi9YTERuRjdwYytNNDFTdlR6YXErcHA5VU8yUXRBWDlsZjZid0Zad01qY0xOTjZGdFM1TFFJOHNaY3F4aFhuQW1VYVhiZmJBTVhicXhWdmhES1lvSDhzd25lWEE3STRYND0=&_TBL=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcW42YU1lWmxGT00vSytEWkVCUGZQSg==&_CAT=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcmdTUEdHQm1ZNGFOSjZWQjBxbXpRNQ==
+
+빅토리아 - 게시판 중고장터 리스트
+https://dev-vic-wv.theboms.co.kr/market.tbs?PageType=Z0pZYkJvQWFvMUt0a0Y2aFFXV2NLQnh2ZFhaSHpRSUppUGJJNGoyRWpUZWNCNFNZM1h3R2hlY3Q1WXJPdVhIQg==&wvPrf=bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlArbjBGMWdnUGdkbmRuSUQ4NTNESmRqZjNOZXNGcnQ1WmZDbU9jLzRDeWM4Zy9Lc2FJcmlwTTJ3RmMwcHhkNy9tYTZJUXQxYUtHbFIzWFUzeHVvck1pck1uZlFUSXM1c2VBQ2U4NU9tRWVwYmV5Z2RDN1pSVk9JOSs3Z1p4Nzg1ZEZjY2lJQktmUjRmZ3RwZ05DWjZhVjBLTFlUQmlIczZnd2tyVGZxU25XNG9KbUtHNEFSVVZnQi9YTERuRjdwYytNNDFTdlR6YXErcHA5VU8yUXRBWDlsZjZid0Zad01qY0xOTjZGdFM1TFFJOHNaY3F4aFhuQW1VYVhiZmJBTVhicXhWdmhES1lvSDhzd25lWEE3STRYND0=
+
+bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlArbjBGMWdnUGdkbmRuSUQ4NTNESmRqZjNOZXNGcnQ1WmZDbU9jLzRDeWM4Zy9Lc2FJcmlwTTJ3RmMwcHhkNy9tYTZJUXQxYUtHbFIzWFUzeHVvck1pck1uZlFUSXM1c2VBQ2U4NU9tRWVwYmV5Z2RDN1pSVk9JOSs3Z1p4Nzg1ZEZjY2lJQktmUjRmZ3RwZ05DWjZhVjBLTFlUQmlIczZnd2tyVGZxU25XNG9KbUtHNEFSVVZnQi9YTERuRjdwYytNNDFTdlR6YXErcHA5VU8yUXRBWDlsZjZid0Zad01qY0xOTjZGdFM1TFFJOHNaY3F4aFhuQW1VYVhiZmJBTVhicXhWdmhES1lvSDhzd25lWEE3STRYND0=
+
+
+빅토리아 - 게시판 한인회소식
+https://dev-vic-wv.theboms.co.kr/board.tbs?PageType=c2tPQ0hzcllpNFVrRUFNa0FXVitXaStYSUhsaC9Vb1RwVDIrOG9VOUd4dGVxSklWNFBhK0lZcmlVaG1KUTc2Sg==&wvPrf=abcdefghijklmnopqrstuvwxyz&_TBL=c2tPQ0hzcllpNFVrRUFNa0FXVitXaStYSUhsaC9Vb1RwVDIrOG9VOUd4dkRDNlExdFNwU1dDdHh3SlgwWXFFNw==&_CAT=c2tPQ0hzcllpNFVrRUFNa0FXVitXaStYSUhsaC9Vb1RwVDIrOG9VOUd4c2JxM0NMRDRqY3NzSmFSckdXV3FhUw==&wvPrf=bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlArbjBGMWdnUGdkbmRuSUQ4NTNESmRqZjNOZXNGcnQ1WmZDbU9jLzRDeWM4Zy9Lc2FJcmlwTTJ3RmMwcHhkNy9tYTZJUXQxYUtHbFIzWFUzeHVvck1pck1uZlFUSXM1c2VBQ2U4NU9tRWVwYmV5Z2RDN1pSVk9JOSs3Z1p4Nzg1ZEZjY2lJQktmUjRmZ3RwZ05DWjZhVjBLTFlUQmlIczZnd2tyVGZxU25XNG9KbUtHNEFSVVZnQi9YTERuRjdwYytNNDFTdlR6YXErcHA5VU8yUXRBWDlsZjZid0Zad01qY0xOTjZGdFM1TFFJOHNaY3F4aFhuQW1VYVhiZmJBTVhicXhWdmhES1lvSDhzd25lWEE3STRYND0=
+
+bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlArbjBGMWdnUGdkbmRuSUQ4NTNESmRqZjNOZXNGcnQ1WmZDbU9jLzRDeWM4Zy9Lc2FJcmlwTTJ3RmMwcHhkNy9tYTZJUXQxYUtHbFIzWFUzeHVvck1pck1uZlFUSXM1c2VBQ2U4NU9tRWVwYmV5Z2RDN1pSVk9JOSs3Z1p4Nzg1ZEZjY2lJQktmUjRmZ3RwZ05DWjZhVjBLTFlUQmlIczZnd2tyVGZxU25XNG9KbUtHNEFSVVZnQi9YTERuRjdwYytNNDFTdlR6YXErcHA5VU8yUXRBWDlsZjZid0Zad01qY0xOTjZGdFM1TFFJOHNaY3F4aFhuQW1VYVhiZmJBTVhicXhWdmhES1lvSDhzd25lWEE3STRYND0=
+
+-- 게시판
+/board.tbs?PageType=eDVZdG1VVkFuMm1YVi9HVUVKNnEyTmZuVlB4QUJQMGdVKzNsdjB3eFBkR3ZtQzJCR0FXYnVVUDBXMXExamNDUw==
+&wvPrf=bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlA1bU9sKzA5MkNwZmd4UmNuNzhDdU8rclU1VDdsSmFUU3RCNHhwcmZGNXEva3c5eXRJNG9DUzRLWlZNNUJWLzlzWnczbFZzV2JKWFNaTFJkYWxtRENHQXhCNTdqcjN6RTAvOUJPOGRGcUF2MHlCOCtMclhpMEtnRThuZ0JBSmRWbVRhaWpHVzhPZTc0UE1CenRkWmN3cW0vOGhFNStncTRmYlhrQ1dqRVRxZ1ljK2xuUVIvSHhkd1RvYXo2dTNad1RwU1ZENVUzVTF1eTBBdEdOeldlV2dKOThEUXhwT1NQV3B6OGtCaHNPWi9M
+
+빅토리아 - 자유게시판 네이버계정
+https://dev-vic-wv.theboms.co.kr/board.tbs?PageType=dDNaRXBxQzNaMEtmR3FiclF3NnBjZmQrQmhkdkFrK1JHanRSeUE3V0poV1lJclpUc0JzQTZXR2FwSW16dW02ag==&wvPrf=WU1qT21GT1lzaDAzSEpnMGNDVFh5ZHlOMUx1WEd5aGRkc1M4QWZsVHcrTnliZUg5dWxKdUJ6OGdreDEvSng2bU94cGhzSU9KdlhsQTBuQWlmbHB3QmhOZC9SaGFCbEZtaTd4MXdjWlV3OFBsNUNLblZiU0NCU052Ny8yMTdDYnZWYnFCdERRc2pGT2lvdUxiOHlMdHBsY3Z3enpJSllZcklCZ0dsN1BDZndBdlJSSk5OaWNXVFQyNUZqSXZyWU5pM0w2RXFrdDVsOE9oWERjSVk1dnJCWWxMTTFnM05GZ05BWEVEU1R6aisyOW5TKzlHeCtYRC9qU1VnZitwK1ZXMUhFQjBQYjd6RmZFSnVIWkx2cVVXM3VnNmtUbCtKM3BZTnk4TlBnL1VJUWYwS2RsUDBoTHFNcG5PeFc0dHowbGU=&_TBL=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcW42YU1lWmxGT00vSytEWkVCUGZQSg==&_CAT=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcmdTUEdHQm1ZNGFOSjZWQjBxbXpRNQ==&nBrdCode=emxrN09aejdocmIwMi9uMEU1b0JlSmJPYjhjSFhFZHF5Y0ZGTHF5Vm1oRGpqS3puTkhnMytIVXpIbG9XMElaZg==
+
+빅토리아 - 자유게시판 카카오계정
+https://dev-vic-wv.theboms.co.kr
+
+-- 파일창
+/board.tbs?PageType=djk2VjBxaERmZnFyOVNrdnREQ0xvOHJrUWdzNDdQUVZBR1VKeDNiMUs4L3BWUnUxQVZPRHU3VCtFWXVHQ2ViYw==
+&wvPrf=bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYTFqenM5clNQMExFaXZrTEE0K0hKL3JKODZ4cjdMcHFGQWdNRndsbFdDTTd5Wi9PcEVuaUpZN3k5aGFPSXNLQytjQ3N4NWgwS3E0VXl3OG8yMGZPVlA1bU9sKzA5MkNwZmd4UmNuNzhDdU8rclU1VDdsSmFUU3RCNHhwcmZGNXEva3c5eXRJNG9DUzRLWlZNNUJWLzlzWnczbFZzV2JKWFNaTFJkYWxtRENHQXhCNTdqcjN6RTAvOUJPOGRGcUF2MHlCOCtMclhpMEtnRThuZ0JBSmRWbVRhaWpHVzhPZTc0UE1CenRkWmN3cW0vOGhFNStncTRmYlhrQ1dqRVRxZ1ljK2xuUVIvSHhkd1RvYXo2dTNad1RwU1ZENVUzVTF1eTBBdEdOeldlV2dKOThEUXhwT1NQV3B6OGtCaHNPWi9M
+
+&_TBL=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcW42YU1lWmxGT00vSytEWkVCUGZQSg==
+&_TBL=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcW42YU1lWmxGT00vSytEWkVCUGZQSg==
+
+&_CAT=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcmdTUEdHQm1ZNGFOSjZWQjBxbXpRNQ==
+&_CAT=SmpsUDFHcVJ5a01OdGRPTFBQMm05RnN3T3duWUVBazZRL01TckRnSFlFcmdTUEdHQm1ZNGFOSjZWQjBxbXpRNQ==
+
+
+# 20210308
+1. 빅토리아 테스트
+ - IOS 테스트(박은비 과장)
+  -- 이미지 업로드시 선택박스 색깔
+  -- 파일 업로드 후 이미지 업로드 실패
+  
+ - 푸시 셋팅 및 테스트
+  -- 안드로이드 성공, ios 실패
+  -> IOS 번들아이디 변경 (개발, 리얼 번들아이디 통일). 완료.
+
+ - 자유게시판 푸시 안됨
+ 
+2. 네이버 로그인 문서 작성
+
+3. 중구청 게시판 대댓글 기능 확인
+ -> 2주내 개발하기로 함.
+ 
+
+# 20210309
+1. 토스트 api 서버 오류 처리.
+ - 크론&메일 용량 관련 오류 해결
+
+
+# 리눅스 메일관련 오류 처리
+https://xinet.kr/?p=1452
+https://tod2.tistory.com/177
+https://tisiphone.tistory.com/185
+https://m.blog.naver.com/PostView.nhn?blogId=hsunryou&logNo=221625995499&proxyReferer=https:%2F%2Fwww.google.com%2F
+
+
+
+# 20210310
+1. 네이버 검수 문서
+2. 한인회 연락처
+3. 자유게시판 푸시
+
+# 20210311
+1. 네이버 검수 문서
+2. 자유게시판 푸시
+3. 아이폰 파일첨부
+4. 에디톡 썸네일 (완료)
+
+
+# 20210312
+1. 네이버 검수 문서
+2. 자유게시판 푸시
+3. 아이폰 파일첨부
+4. 중구 스마트케어 댓글
+
+5. 에디톡 ca 소셜쪽 버그 scl_code, sc_code
+
+-- 에디톡 - 메인
+https://dev-kps-wv.theboms.co.kr/main.tbs?PageType=anJGbitiQmFKNmYrYmwwbkpndEdsWSt6Zm5JRDhjdmQyeW5qa1BmcDl4NDJRcUZBekVKVXpoTHpHQ2VJcXVDbA==&wvPrf=S05pV0xMOGwxOUhTVC9UQW8xMTNMQnd0TkcrU2hHZzM5d0tTOXc3aTFDQzdzb0VHSkZDRVdBcGF1a1ZsVk14c1NvT2RUS2Q1Ri9TeU5ZV3VmblFjR3VHYS9ESzdPSW9yWThxZzJEYWEvaGNtNDdGNWhuTGcvZ2NIQ3lEZWlmVFJUTGxjRGtEUlArWVRweUg0SVRxZ2xrcTl2dlZDMmdxNEVkemIxMWlsSHR4RS9ka0xoRzh3L3BJRU5yLzNIbnc0blNIaDFVcUl6VGFNT1ZiUnJSajYvNGQ5UlV1VEd0Nm9SUWVOUUhJRHBlQU9PVXFFSXZXYXlSTkJjS3pibjM5Z1ExYnl2NEhXanVwZTVRTGQ5MFpUMmJqLzNQWUYvOSt0L1BKV3dqNEpxVVRTdDFoOHpoSGp2SXpXWHlOb2lUZDhFQWlkNHNCWjlwUXRySU5zUTdiekN3PT0=
+
+
+# 20210315
+1. 클라우드, NAS 계정 변경
+2. 빅토리아 한인회 긴급연락처 수정
+
+
+# 20210318
+1. 한인회 앱 비로그인 접속 조회권한 검토
+2. 모바일웹 검토
+
+
+# 20210319
+1. 한인회 앱 비로그인 접속 조회권한 검토
+2. 모바일웹 검토
+3. 중구스마트케어 댓글 수정
+4. 광명시 아동돌봄 프로세스 구상도
+5. 빅토리아 앱 안드로이드 게시, 아이폰 검수 신청, 
+   - 안드로이드 다이나믹링크 접속 확인
+
+자유광장, QnA, 구인구직, 긴급상황
+
+중구 스마트케어 - 자유광장 리스트
+https://dev-sc-wv.theboms.co.kr/board.tbs?PageType=c0JLRW9sTWxSK1R4UFkrTDhVNy9nWFN3VjF0UEt4U2V2VE9wU3ZDVWI1N3QzdktPbEk1UDVwUUJEOG1LeUhlSA==&wvPrf=abcdefghijklmnopqrstuvwxyz&_TBL=c0JLRW9sTWxSK1R4UFkrTDhVNy9nWFN3VjF0UEt4U2V2VE9wU3ZDVWI1NW4rNENBekl0NmpxYzVDb2diWlNibA==&_CAT=c0JLRW9sTWxSK1R4UFkrTDhVNy9nWFN3VjF0UEt4U2V2VE9wU3ZDVWI1NXVsVXZXN1AvWWlYZ3hreTI5T1RwNw==&wvPrf=U3ZBNDFCSlM0c1JIRFJ6clBHam1WeDBmVm5VTEt0dS8rMWQrREp5VTEwZ2VTaUZUbDBoV2hGZVNaM0lLcDZidityVWNmREFsaXVtblgveE1CSDQ1TUt1MVJIWnR5UTNabjJ1YStmajd0SmVsLzhHVXBvSXUrZWRUZjlOcGxTVjBtMWgwT2ZVWUZ6RnVobVphbHZhRTJXRTlUbTRrSWZMdUVYcXU3QTFXTVU5aE5ybCtuSmRjTloralROYStPbWJ5YnMxUDN6OGlsbTA5dlduVnkwVzE5eklaV21NVVJjcENiK2l4V3IwUFZFU1FMM0dpLzJnMzJvQkQwdU1NM0dOdTlMYSt2dzRJVFg1V0tQdm5uRjBES1RBeDdTTWFLMjB4dkttclU1S3o4OUZrNW5QMlVZN3IvQTN6Sk0vbmt3UVpXTHp3M2IwL3YxSlZCVEdLMVVuUXArK1hvcTZFL2pVdmhiNitxbjNkT3VZWXJUOXlhOURUenp2b3Z5MHFyTkxad3BGdTZXeE9Oa1RHdjBka2c3Y0NJcU1yR3V4MDdmdmJCVkFMLzVTaUR2Yz0=
+
+중구 스마트케어 - 자유광장 글보기
+https://dev-sc-wv.theboms.co.kr/board.tbs?PageType=eE9RbmZqRk1GMEx4WGcvVk1YT3AvK0dRUU4zSE96SU9CVlEyN3NTQTUrUlQvb3lJemlITnpuUGhtc3VnMFV2WA==&wvPrf=bVVid2g3M3orWVVwaXZacjhuekFBWTZMeGM1Y05OeDExdEFsbTRzenhqWnovQ0ZDQVg3WGtaeVlDSmlYT0RSYWduNlNwcVhiRzVCbnZOblVlZUdZclU2bmtLc1pwcWhIZE1RTzhpblNXRHVFbnYyYmdXT05rUW1vN1pZbVRucmtOTVdaUEw1Y0Niems1V0tCMDlBSFpCWVBTR3c2aVQ5OEJjb0JxZHJkeXZjS0MvR3kxWnIrS2tNN3lBWFQ5bzFrdE1FMnhEejhPM0hJY3NCOE9WK05rY0w2QWlDV3pqak1HajNtTjVHNjNZSHozQytiOE1yQUxaSW05T2liZkZuTEE5RmlQNXBEZWJ5LzIrZ1ZLY2NieTNUQ1VOemJ0L0ZqUjJWY0hFQ2hkZmp2L1dWUEdMK1JQL0VEMzZwalVqbU9KVUp4a3RpK3U0WkplWWZmekNINkpsV08xRUswR0lqRnh0WlB1QlIrT0xKeVU1TzJBUzVCdEduN2doejBpdU50&_TBL=c0JLRW9sTWxSK1R4UFkrTDhVNy9nWFN3VjF0UEt4U2V2VE9wU3ZDVWI1NW4rNENBekl0NmpxYzVDb2diWlNibA==&_CAT=c0JLRW9sTWxSK1R4UFkrTDhVNy9nWFN3VjF0UEt4U2V2VE9wU3ZDVWI1NXVsVXZXN1AvWWlYZ3hreTI5T1RwNw==&nBrdCode=RHByS3A4QitlSE9XT2U2UVpMekRJemRiaHUxRlpkck1ZSTYyK2ViWEJnT2s2eTltUElmcFFaNzVoRUNKSmZwRA==
+
+
+# 2021-03-22
+1. 빅토리아 셋팅 매뉴얼 수정
+2. 리얼 서버 모니터링 및 버그 수정
+3. 중구스마트케어 댓글/대댓글 글쓴이 표시 변경
+4. http -> https 리다이렉트 버추얼호스트 셋팅 오류 수정 예정
+5. 에디톡 CA 버그 수정 예정 (소셜코드 컬럼명 비매칭 오류)
+6. 아이폰 앱 버그사항 전체 서비스 업체 대상 수정 요청
+7. 광명시 돌봄앱(가칭) 정기 회의 준비(22일), 회의 진행(24일)
+
+
+** 채팅 사용중
+뉴욕, LA, 하와이, 아틀란타
+
+
+public_html/css/service.sc.css
+.re_user {color:#0DA2B8;}
+
+
+config/modules/mod_board.tbs
+
+$nReMbsCode = ($nSeqCode > 0) ? $nReplyInfo1['re_mbs_code'] : 0;
+변경 : $nReMbsCode = ($nRepCode > 0) ? $nReplyInfo1['re_mbs_code'] : 0;
+$nRepCode - 현재 쓰고 있는 원댓글의 idx
+
+
+public_html/skins/board/board.view.skin.tbs
+
+data.list[i].re_usr_name 노출하는 위치에 re_user 클래스 적용
+
+
+public_html/skins/social/social.post.view.skin.tbs
+
+data.list[i].re_usr_name 노출하는 위치에 re_user 클래스 적용
+
+config/modules/mod_social_post.tbs
+
+$nReMbsCode = ($nSeqCode > 0) ? $nReplyInfo1['re_mbs_code'] : 0;
+변경 : $nReMbsCode = ($nRepCode > 0) ? $nReplyInfo1['re_mbs_code'] : 0;
+$nRepCode - 현재 쓰고 있는 원댓글의 idx
+
+
+$nReMbsCode = ($nSeqCode > 0) ? $nReplyInfo1['re_mbs_code'] : 0;
+=> $nSeqCode를 $nRepCode( 현재 작성하고 있는 원댓글의 idx )로 교체
+$nReMbsCode = ($nRepCode > 0) ? $nReplyInfo1['re_mbs_code'] : 0;
+
+data.list[i].re_usr_name 노출하는 위치에 re_user 클래스 적용
+
+
+_TBS_BOARD_NAME_COMMON_REPLY.re_mbs_code
+_TBS_SOCIAL_POST_REPLY.re_mbs_code
+
+
+# 2021-03-25
+1. 빅토리아 셋팅 매뉴얼 수정
+2. 리얼 서버 모니터링 및 버그 수정
+3. 중구스마트케어 댓글/대댓글 글쓴이 표시 변경
+4. http -> https 리다이렉트 버추얼호스트 셋팅 오류 수정 예정
+5. 에디톡 CA 버그 수정 예정 (소셜코드 컬럼명 비매칭 오류)
+6. 아이폰 앱 버그사항 전체 서비스 업체 대상 수정 요청
+7. 광명시 돌봄앱(가칭) 정기 회의 준비(22일), 회의 진행(24일)
+8. 미주한인회 건강 카테고리 등록
+
+빅토리아 이미지 수정
+중구 게시물 처리 오류
+오렌지카운티 긴급연락처a
+오렌지카운티 어드민 암호 초기화
+aws 푸시서버 로그 정리(삭제 스크립트)
+
+
+https://dev-sc-wv.theboms.co.kr/social.tbs?PageType=TDU1aFlZem5INnpNTmM0REZQdi9jYVozSG1LRSsyQmo2bDNxcFBlZ3F0ZStVemt4Q1FXRVE2bDJhTmdUYzZqK1NocTdXcHJxTjdsby84QnZiY1ppZEE9PQ==&wvPrf=UXg3Qnl3SFZ3cFQzRXBzTmtXN3dkeG9SOERZTk5iSlBjd3F2SGVJK0hNTUR6cVQ1RGxZSWxuSG1YS3VibE1BZXZnMTNoMVM0ZjY0VXAzSUtPclF4cktLWHhqZWhKaXByb0dwdHRXbUhPeXZoY3hpMm5kbDBSRXFnWmdKUGd2WXFFTjR0bjZVc2MzTEUrTUxXcFFtQjNHRXRCQ21Nc3JKNy96STBiUFBHMXBxUTRTRUdlb295c2hMVGd2WDlVcERiUE5GSjRnRU9FRnJUUFhzMGlkTS9pTTBHRTJJYkZta05pRU5FSFVFeTd0SE1DTlpLWXVWMlkyUTdvc3g3YyszRDVXYzBtK29CZjNUNytqYk1iSkFSalRsRG92VWEwQVdueTZaR2hlWmhwbDYzYnNoUDUwMjg1N3N2cWFTb2FIZ215ZTVJUlVRbUIyZmYrd1VqNGpOaWRydEhWWjVFWUMwSjdKVDI3dnczN01renRrcFNubmF3QkpHTXBIczN6ekE2d1JldEszd0FDOEV2OG15eWZrcGdkWWJzeXVsVm4zV1EwYTBkQ0kwWmlLbz0=&nSclCode=undefined&nSclType=undefined
+
+중구 스마트케어 돌봄까페 중 미노출되는 까페 발생
+
+
+
+
+
+##############################################
+# 2021-03-29 주간
+
+1. 중구 까페 처리 - 완료
+2. 푸시서버 로그 정리(삭제 스크립트)
+aws - 완료
+toast - 완료
+
+2-1. 토스트 광명시 인스턴스 중지 처리
+6. 미주한인회 헬스 카테고리 등록 - LA 완료
+3-1. toast NAS서버 데이터 확인 - 완료
+
+--------------------------------
+
+3-2. toast NAS서버 데이터 정리 (백업 관리)
+3-3. toast NAS서버 백업 스크립트 정리
+
+3. http -> https 리다이렉트 버추얼호스트 셋팅 오류 수정 예정
+aws - 예정
+toast - 예정
+
+4. 리얼 서버 모니터링 쉘스크립트
+
+5. 에디톡 CA 버그 수정 예정 (소셜코드 컬럼명 비매칭 오류)
+
+# 2021-04-05 주간
+1. 서버 http -> https 리다이렉트 버추얼호스트 셋팅 오류 수정 - 개발 완료, 리얼 완료
+2. 금투협 분석
+
+2. 한인회 로그인없이 컨텐츠 열람
+3. toast NAS서버 데이터 정리 (백업 관리)
+3-1. toast NAS서버 백업 스크립트 정리
+4. 리얼 서버 모니터링 쉘스크립트
+5. 빅토리아 한인회 느림? 중고장터 에러?
+
+    
+
+

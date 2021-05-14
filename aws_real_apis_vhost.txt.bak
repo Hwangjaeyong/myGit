@@ -1,0 +1,449 @@
+### SPS ###
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName dev-aws-sps.theboms.co.kr
+        Redirect permanent / https://dev-aws-sps.theboms.co.kr
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/dev-aws-sps.theboms.co.kr-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/dev-aws-sps.theboms.co.kr-error_log.%Y%m%d"
+
+        <Directory /home/nyapis/public_html/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName aws-sps.thebom.pro
+        Redirect permanent / https://aws-sps.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/aws-sps.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/aws-sps.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /home/nyapis/public_html/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+</VirtualHost>
+
+### NEWYORK ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName ny-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ny-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ny-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName ny-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ny-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ny-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### LA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName aws-la-wv.theboms.co.kr
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/aws-la-wv.theboms.co.kr-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/aws-la-wv.theboms.co.kr-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName aws-la-wv-apis.theboms.co.kr
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/aws-la-wv-apis.theboms.co.kr-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/aws-la-wv-apis.theboms.co.kr-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### LAS VEGAS ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName lv-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/lv-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/lv-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName lv-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/lv-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/lv-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### HAWAII ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName hwi-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/hwi-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/hwi-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName hwi-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/hwi-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/hwi-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### ATLANTA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName al-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/al-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/al-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName al-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/al-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/al-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### ARIZONA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName az-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/az-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/az-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName az-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/az-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/az-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### MASSACHUSETTS ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName ma-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ma-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ma-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName ma-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ma-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ma-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### ORANGECOUNTY ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName oc-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/oc-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/oc-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName oc-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/oc-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/oc-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+
+### VICTORIA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nywebview/public_html
+        ServerName vic-wv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/vic-wv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/vic-wv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyapis/public_html
+        ServerName vic-wv-apis.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/vic-wv-apis.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/vic-wv-apis.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <IfModule mod_headers.c>
+         Header set Access-Control-Allow-Origin "*"
+        </IfModule>
+</VirtualHost>
+

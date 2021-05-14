@@ -1,0 +1,208 @@
+### NEWYORK ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/nyadmin/public_html
+        ServerName ny-admin.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ny-admin.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ny-admin.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName ny.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ny.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ny.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### LA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName la.thebomspro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/la.thebomspro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/la.thebomspro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### LAS VEGAS ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName lv.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/lv.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/lv.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+
+### HAWAII ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName hwi.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/hwi.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/hwi.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### ATLANTA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName al.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/al.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/al.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### ARIZONA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName az.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/az.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/az.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### MASSACHUSETTS ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName ma.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ma.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ma.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### ORANGECOUNTY ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName oc.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/oc.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/oc.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>
+
+### VICTORYA_CANADA ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/ny/public_html
+        ServerName vic.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/vic.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/vic.thebom.pro-error_log.%Y%m%d"
+
+        <Files ~ ".bak$">
+          Order allow,deny
+          Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+          Order allow,deny
+          Deny from all
+        </Files>
+</VirtualHost>

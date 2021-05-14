@@ -1,0 +1,40 @@
+1. mysql 쿼리문 중 F_THEBOMS_DEC(), F_THEBOMS_ENC()
+   
+   사용예)
+    WHERE ... AND BINARY(F_THEBOMS_DEC(`UM`.`USER_ID`, `UM`.`EMAIL`)) = '{$email}'";
+    SELECT ... F_THEBOMS_DEC(B.WRITER_USER_ID, C.USER_NM) AS USER_NM
+    SELECT ... F_THEBOMS_DEC(A.USER_ID, A.EMAIL) AS EMAIL
+    SELECT ... F_THEBOMS_DEC(A.USER_ID, A.CELL_PHONE_NO) AS CELL_PHONE_NO
+    UPDATE `USER_MASTER` SET `USER_NM` = F_THEBOMS_ENC(`USER_ID`, '{$userNm}')...
+    SET `EMAIL` = F_THEBOMS_ENC(`USER_ID`, '{$email}')
+    
+    *********************************************************
+    -- 암호화 함수 생성 (샘플)    
+    DELIMITER $$
+
+    DROP FUNCTION IF EXISTS F_THEBOMS_ENC;
+
+    CREATE FUNCTION F_THEBOMS_ENC(user_id VARCHAR(64), target_text VARCHAR(64)) 
+      RETURNS BLOB
+    BEGIN
+      RETURN HEX(AES_ENCRYPT(target_text, user_id));
+    END;
+    $$
+    DELIMITER ;
+    *********************************************************
+    
+    *********************************************************
+    -- 복호화 함수 생성 (샘플)
+    DELIMITER $$
+
+    DROP FUNCTION IF EXISTS F_THEBOMS_DEC;
+
+    CREATE FUNCTION F_THEBOMS_DEC(user_id VARCHAR(64), target_column VARCHAR(64)) 
+      RETURNS VARCHAR(64)
+    BEGIN
+      RETURN CONVERT(AES_DECRYPT(UNHEX(target_column), user_id) using utf8);
+    END;
+    $$
+    DELIMITER ;
+    *********************************************************
+    

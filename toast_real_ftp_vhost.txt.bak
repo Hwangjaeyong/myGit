@@ -1,0 +1,498 @@
+### BASIC ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /home/www/public_html
+        ServerName thebom.pro
+        ServerAlias theboms.pro www.thebom.pro
+        # Redirect permanent / https://www.thebom.pro
+        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/www.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/www.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /home/www/public_html/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName file.thebom.pro
+        Redirect permanent / https://file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+### DAS ###
+
+#<VirtualHost *:80>
+#        ServerAdmin webmaster@dummy-host.example.com
+#        DocumentRoot /home/jmftp/public_html
+#        ServerName jm-ftp.thebom.pro
+#        Redirect permanent / https://jm-ftp.thebom.pro
+#        SetEnvIfNoCase Request_URI (gif|png|jpg|css|js|bmp|jpeg|swf)$ IMAGE=1
+#        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/jm-ftp.thebom.pro-access_log.%Y%m%d" combined
+#        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/jm-ftp.thebom.pro-error_log.%Y%m%d"
+#
+#        <Directory /home/jmftp/public_html/>
+#         Options FollowSymLinks MultiViews
+#         AllowOverride All
+#         Require all granted
+#        </Directory>
+#
+#        <Files ~ ".bak$">
+#         Order allow,deny
+#         Deny from all
+#        </Files>
+#
+#        <Files ~ ".old$">
+#         Order allow,deny
+#         Deny from all
+#        </Files>
+#</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName jm-file.thebom.pro
+        Redirect permanent / https://jm-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/jm-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/jm-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://jm-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+### EDITALK ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName kps-file.thebom.pro
+        Redirect permanent / https://kps-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/kps-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/kps-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://kps-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName kps-wv-file.thebom.pro
+        Redirect permanent / https://kps-wv-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/kps-wv-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/kps-wv-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://kps-wv-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+### MYANMAR ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName mm-file.thebom.pro
+        Redirect permanent / https://mm-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/mm-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/mm-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://mm-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName mm-wv-file.thebom.pro
+        Redirect permanent / https://mm-wv-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/mm-wv-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/mm-wv-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://mm-wv-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+### INSITE JAPAN ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName ij-file.thebom.pro
+        Redirect permanent / https://ij-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ij-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ij-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://ij-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName ij-wv-file.thebom.pro
+        Redirect permanent / https://ij-wv-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/ij-wv-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/ij-wv-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://ij-wv-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+### SMART CARE ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName sc-file.thebom.pro
+        Redirect permanent / https://sc-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/sc-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/sc-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://sc-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName sc-wc-file.thebom.pro
+        Redirect permanent / https://sc-wc-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/sc-wc-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/sc-wc-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://sc-wc-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+### HONGKONG ###
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName hk-file.thebom.pro
+        Redirect permanent / https://hk-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/hk-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/hk-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://hk-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@dummy-host.example.com
+        DocumentRoot /data/files
+        ServerName hk-wv-file.thebom.pro
+        Redirect permanent / https://hk-wv-file.thebom.pro
+        CustomLog "|/usr/sbin/cronolog logs/%Y/%m/hk-wv-file.thebom.pro-access_log.%Y%m%d" combined
+        ErrorLog "|/usr/sbin/cronolog logs/%Y/%m/hk-wv-file.thebom.pro-error_log.%Y%m%d"
+
+        <Directory /data/files/>
+         Options FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+        </Directory>
+
+        <Files ~ ".bak$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+        <Files ~ ".old$">
+         Order allow,deny
+         Deny from all
+        </Files>
+
+         SetEnvIf Referer “^http://localhost/”  local_referal
+         SetEnvIf Referer “^http://127.0.0.1/”  local_referal
+         SetEnvIf Referer “^http://hk-wv-file.thebom.pro/” local_referal
+         SetEnvIf Referer “^$”                  local_referal
+
+         <Directory /data/files/>
+          Order Deny,Allow
+          Deny  from all
+          Allow from env=local_referal
+        </Directory>
+</VirtualHost>
